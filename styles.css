@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: #acb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: max-content;
+  position: relative;
+  animation: updown 2s infinite alternate;
+}
+
+.bear {
+  background: #000;
+  width: 340px;
+  height: 330px;
+  border-radius: 50% / 40% 40% 60% 60%;
+  position: relative;
+}
+
+.eyes {
+  position: absolute;
+  background: #fff;
+  width: 30px;
+  height: 25px;
+  border-radius: 50% / 40% 40% 60% 60%;
+  animation: left-right-eyes 4s infinite,
+    open-close 3s ease-in-out 2s infinite backwards;
+  transition: 1s ease;
+}
+
+.eyes.right {
+  right: 20%;
+  top: 25%;
+  transform: rotate(-10deg);
+}
+
+.eyes.left {
+  left: 20%;
+  top: 25%;
+  transform: rotate(10deg);
+}
+
+.nose-body {
+  width: 100px;
+  background: #fff;
+  height: 120px;
+  position: relative;
+  top: 45%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% / 60% 60% 30% 30%;
+  animation: nose-body 4s infinite;
+  transition: 1s ease;
+}
+
+.nose {
+  width: 50px;
+  height: 26px;
+  background: #000;
+  margin: 40px auto;
+  border-radius: 50% / 40% 40% 60% 60%;
+  animation: inner-nose 700ms infinite alternate;
+}
+
+.ears {
+  width: 70px;
+  height: 80px;
+  background: #000;
+  position: absolute;
+  transform: translateY(-40px);
+  animation: updown-ear 2s infinite alternate;
+}
+
+.ears.left {
+  border-radius: 50% 100%;
+  top: -1em;
+}
+
+.ears.right {
+  border-radius: 100% 50%;
+  right: 0;
+  top: -1em;
+}
+
+/* ----------------Animations------------------ */
+
+@keyframes open-close {
+  25% {
+    height: 0;
+  }
+
+  50%,
+  70%,
+  100% {
+    height: 25px;
+  }
+}
+
+@keyframes updown {
+  100% {
+    transform: translateY(45px);
+  }
+}
+
+@keyframes updown-ear {
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes left-right-eyes {
+  33% {
+    transform: translate(10px, -10px);
+  }
+  66% {
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes nose-body {
+  33% {
+    transform: translate(1px, -50px);
+  }
+  66% {
+    transform: translate(-90px, -50px);
+  }
+}
+
+@keyframes inner-nose {
+  100% {
+    transform: scale(1.2);
+    transform-origin: center;
+  }
+}
